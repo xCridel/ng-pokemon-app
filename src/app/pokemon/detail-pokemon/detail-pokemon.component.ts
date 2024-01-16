@@ -26,7 +26,17 @@ export class DetailPokemonComponent {
     }
   }
 
+  deletePokemon(pokemon: Pokemon) {
+    this.pokemonService
+      .deletePokemonById(pokemon.id)
+      .subscribe(() => this.goToPokemonList());
+  }
+
   goBack() {
+    this.router.navigate(["/pokemons"]);
+  }
+
+  goToPokemonList() {
     this.router.navigate(["/pokemons"]);
   }
 
